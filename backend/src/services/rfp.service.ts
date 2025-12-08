@@ -38,6 +38,7 @@ export async function attachVendorsToRfp(rfpId: string, vendorIds: string[]) {
 }
 
 export async function sendRfpToVendors(rfpId: string) {
+  
   const rfp = await Rfp.findById(rfpId).populate("vendors");
   if (!rfp) throw new Error("RFP not found");
 

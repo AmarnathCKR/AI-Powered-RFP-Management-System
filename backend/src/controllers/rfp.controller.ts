@@ -59,6 +59,7 @@ export async function postRfpVendors(req: Request, res: Response, next: NextFunc
 export async function postRfpSend(req: Request, res: Response, next: NextFunction) {
   try {
     const { id } = req.params;
+    console.log("SMTP Host:", env.SMTP_HOST, env.SMTP_SECURE,env.SMTP_USER,env.SMTP_PASS,"passowrds");
     const results = await sendRfpToVendors(id);
     return ok(res, { sent: results });
   } catch (err) {
