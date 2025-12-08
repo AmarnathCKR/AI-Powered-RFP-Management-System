@@ -28,15 +28,5 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 4000
 
 # Start compiled app
-CMD ["sh", "-c", "echo 'Checking for dist directory...'; \
-  if [ -d dist ]; then \
-    echo '✅ dist folder exists'; \
-  else \
-    echo '❌ dist folder is MISSING'; \
-    echo 'Current directory:'; pwd; \
-    echo 'Listing files:'; ls -R; \
-    exit 1; \
-  fi; \
-  echo 'Starting app with node dist/server.js'; \
-  node dist/server.js]
+CMD ["node", "dist/server.js"]
 
