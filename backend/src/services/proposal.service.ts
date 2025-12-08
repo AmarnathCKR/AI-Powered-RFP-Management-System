@@ -2,7 +2,7 @@ import { Proposal, ProposalDocument } from "../models/proposal.model";
 import { Rfp } from "../models/rfp.model";
 import { Vendor } from "../models/vendor.model";
 import { parseVendorEmail } from "./ai/proposalAi.service";
-import { compareProposalsWithAi } from "./ai/comparisonAi.service";
+import { compareProposalsWithAi, ProposalLike } from "./ai/comparisonAi.service";
 
 export async function listProposalsForRfp(rfpId: string) {
   return Proposal.find({ rfp: rfpId }).populate("vendor");
@@ -52,5 +52,6 @@ export async function compareProposalsForRfp(rfpId: string) {
   if (!rfp) throw new Error("RFP not found");
 
   const proposals = await Proposal.find({ rfp: rfpId }).populate("vendor");
-  return compareProposalsWithAi(rfp, proposals);
+  return compareProposalsWithAi(rfp, proposals as unknown as ProposalLike[]);
 }
+
