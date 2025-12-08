@@ -37,6 +37,6 @@ CMD ["sh", "-c", "echo 'Checking for dist directory...'; \
     echo 'Listing files:'; ls -R; \
     exit 1; \
   fi; \
-  echo 'Starting app with node dist/index.js'; \
-  node dist/index.js"]
+  echo 'Starting app with node dist/server.js'; \
+  node dist/server.js]
 
