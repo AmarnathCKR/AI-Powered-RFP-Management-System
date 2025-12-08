@@ -1,4 +1,4 @@
-# Build and deploy Backend Node.js app to Azure Web App
+# Build and deploy Node.js backend to Azure Web App
 
 name: Build and deploy Node.js backend to Azure Web App - ai-rfp-amarnathckr
 
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js version (matches your local Node v22.21.1)
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
@@ -36,20 +36,19 @@ jobs:
           path: backend
 
   deploy:
-  runs-on: ubuntu-latest
-  needs: build
+    runs-on: ubuntu-latest
+    needs: build
 
-  steps:
-    - name: Download backend artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: backend-build
-        path: .
+    steps:
+      - name: Download backend artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: backend-build
+          path: .
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v3
-      with:
-        app-name: 'ai-rfp-amarnathckr'
-        package: ./backend
-        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'ai-rfp-amarnathckr'
+          package: ./backend
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
