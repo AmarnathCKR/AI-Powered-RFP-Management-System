@@ -7,6 +7,7 @@ import {
   sendRfpToVendors
 } from "../services/rfp.service";
 import { ok, fail } from "../utils/apiResponse";
+import { env } from "process";
 
 export async function postRfpFromText(req: Request, res: Response, next: NextFunction) {
   try {
