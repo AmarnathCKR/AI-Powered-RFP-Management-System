@@ -10,5 +10,8 @@ router.use("/rfps", rfpRoutes);
 router.use("/vendors", vendorRoutes);
 router.use("/proposals", proposalRoutes);
 router.use("/email", emailRoutes); 
+router.use("/health", (req, res) => {
+    res.status(200).send("OK");
+});
 
 export default router;
