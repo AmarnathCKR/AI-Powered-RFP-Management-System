@@ -49,8 +49,9 @@ jobs:
       - name: Deploy backend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'rfp-backend'
+          app-name: 'ai-rfp-amarnathckr'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_35880C35337543F4B074DD0E74DB428A }}
           package: ./backend
+
 
