@@ -1,7 +1,6 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# Build and deploy Backend Node.js app to Azure Web App
 
-name: Build and deploy Backend Node.js app to Azure Web App - ai-rfp-amarnathckr
+name: Build and deploy Node.js backend to Azure Web App - ai-rfp-amarnathckr
 
 on:
   push:
@@ -16,9 +15,10 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js version (matches your local Node v22.21.1)
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
@@ -46,12 +46,9 @@ jobs:
           name: backend-build
           path: .
 
-      - name: Deploy backend to Azure Web App
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'ai-rfp-amarnathckr'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_35880C35337543F4B074DD0E74DB428A }}
           package: ./backend
-
-
