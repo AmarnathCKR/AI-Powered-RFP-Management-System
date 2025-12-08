@@ -2,6 +2,7 @@
   "name": "rfp-backend",
   "version": "1.0.0",
   "main": "dist/server.js",
+  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
