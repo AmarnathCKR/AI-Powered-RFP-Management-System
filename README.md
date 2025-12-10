@@ -1083,24 +1083,6 @@ A: Ensure 2FA and App Password. Verify `SMTP_PASS` is the app password. Inspect 
 Q: Mongo connection refuses.
 A: Ensure `MONGO_URI` is correct and network allows connections. Use local Mongo via Docker for local dev.
 
----
-
-License
--------
-Choose a license for your project. If you want a permissive license, add an MIT LICENSE file. Example MIT header below — replace owner/year accordingly.
-
-```
-MIT License
-
-Copyright (c) 2025 <Your Name>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy...
-```
-
-(Replace the license text above with the full license file in `LICENSE`.)
-
----
-
 Appendix: Useful commands & snippets
 -----------------------------------
 Start backend dev:
